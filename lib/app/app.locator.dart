@@ -16,9 +16,12 @@ import '../services/authentication_service.dart';
 import '../services/config_service.dart';
 import '../services/database_service.dart';
 import '../services/date_time_service.dart';
+import '../services/device_info_service.dart';
+import '../services/file_picker_service.dart';
 import '../services/local_storage_service.dart';
 import '../services/localization_service.dart';
 import '../services/location_service.dart';
+import '../services/notification_service.dart';
 
 final locator = StackedLocator.instance;
 
@@ -28,13 +31,9 @@ Future<void> setupLocator({
 }) async {
 // Register environments
   locator.registerEnvironment(
-    environment: environment,
-    environmentFilter: environmentFilter,
-  );
+      environment: environment, environmentFilter: environmentFilter);
 
 // Register dependencies
-  locator.registerLazySingleton(
-      () => ConfigService(environment ?? Environment.test));
   locator.registerLazySingleton(() => BottomSheetService());
   locator.registerLazySingleton(() => DialogService());
   locator.registerLazySingleton(() => NavigationService());
@@ -45,4 +44,8 @@ Future<void> setupLocator({
   locator.registerLazySingleton(() => DateTimeService());
   locator.registerLazySingleton(() => LocationService());
   locator.registerLazySingleton(() => LocalizationService());
+  locator.registerLazySingleton(() => ConfigService());
+  locator.registerLazySingleton(() => DeviceInfoService());
+  locator.registerLazySingleton(() => NotificationService());
+  locator.registerLazySingleton(() => FilePickerService());
 }

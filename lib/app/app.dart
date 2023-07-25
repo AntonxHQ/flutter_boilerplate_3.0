@@ -12,6 +12,9 @@ import 'package:antonx_flutter_boilerplate_3/services/date_time_service.dart';
 import 'package:antonx_flutter_boilerplate_3/services/location_service.dart';
 import 'package:antonx_flutter_boilerplate_3/services/localization_service.dart';
 import 'package:antonx_flutter_boilerplate_3/services/config_service.dart';
+import 'package:antonx_flutter_boilerplate_3/services/device_info_service.dart';
+import 'package:antonx_flutter_boilerplate_3/services/notification_service.dart';
+import 'package:antonx_flutter_boilerplate_3/services/file_picker_service.dart';
 // @stacked-import
 
 @StackedApp(
@@ -33,6 +36,9 @@ import 'package:antonx_flutter_boilerplate_3/services/config_service.dart';
     LazySingleton(classType: LocationService),
     LazySingleton(classType: LocalizationService),
     LazySingleton(classType: ConfigService),
+    LazySingleton(classType: DeviceInfoService),
+    LazySingleton(classType: NotificationService),
+    LazySingleton(classType: FilePickerService),
 // @stacked-service
   ],
   bottomsheets: [

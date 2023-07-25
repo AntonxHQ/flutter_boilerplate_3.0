@@ -10,6 +10,9 @@ import 'package:antonx_flutter_boilerplate_3/services/date_time_service.dart';
 import 'package:antonx_flutter_boilerplate_3/services/location_service.dart';
 import 'package:antonx_flutter_boilerplate_3/services/localization_service.dart';
 import 'package:antonx_flutter_boilerplate_3/services/config_service.dart';
+import 'package:antonx_flutter_boilerplate_3/services/device_info_service.dart';
+import 'package:antonx_flutter_boilerplate_3/services/notification_service.dart';
+import 'package:antonx_flutter_boilerplate_3/services/file_picker_service.dart';
 // @stacked-import
 
 import 'test_helpers.mocks.dart';
@@ -26,6 +29,9 @@ import 'test_helpers.mocks.dart';
   MockSpec<LocationService>(onMissingStub: OnMissingStub.returnDefault),
   MockSpec<LocalizationService>(onMissingStub: OnMissingStub.returnDefault),
   MockSpec<ConfigService>(onMissingStub: OnMissingStub.returnDefault),
+  MockSpec<DeviceInfoService>(onMissingStub: OnMissingStub.returnDefault),
+  MockSpec<NotificationService>(onMissingStub: OnMissingStub.returnDefault),
+  MockSpec<FilePickerService>(onMissingStub: OnMissingStub.returnDefault),
 // @stacked-mock-spec
 ])
 void registerServices() {
@@ -40,6 +46,9 @@ void registerServices() {
   getAndRegisterLocationService();
   getAndRegisterLocalizationService();
   getAndRegisterConfigService();
+  getAndRegisterDeviceInfoService();
+  getAndRegisterNotificationService();
+  getAndRegisterFilePickerService();
 // @stacked-mock-register
 }
 
@@ -146,6 +155,27 @@ MockConfigService getAndRegisterConfigService() {
   _removeRegistrationIfExists<ConfigService>();
   final service = MockConfigService();
   locator.registerSingleton<ConfigService>(service);
+  return service;
+}
+
+MockDeviceInfoService getAndRegisterDeviceInfoService() {
+  _removeRegistrationIfExists<DeviceInfoService>();
+  final service = MockDeviceInfoService();
+  locator.registerSingleton<DeviceInfoService>(service);
+  return service;
+}
+
+MockNotificationService getAndRegisterNotificationService() {
+  _removeRegistrationIfExists<NotificationService>();
+  final service = MockNotificationService();
+  locator.registerSingleton<NotificationService>(service);
+  return service;
+}
+
+MockFilePickerService getAndRegisterFilePickerService() {
+  _removeRegistrationIfExists<FilePickerService>();
+  final service = MockFilePickerService();
+  locator.registerSingleton<FilePickerService>(service);
   return service;
 }
 // @stacked-mock-create
