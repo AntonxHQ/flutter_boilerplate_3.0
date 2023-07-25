@@ -11,7 +11,6 @@ class FilePickerService {
   Future<List<PlatformFile>?> pickMultipleFiles() async {
     List<PlatformFile>? paths;
     try {
-      // _directoryPath = null;
       paths = (await FilePicker.platform.pickFiles(
         type: _pickingType,
         allowMultiple: true,
