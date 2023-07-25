@@ -14,7 +14,9 @@ class StartupViewModel extends BaseViewModel {
   final _localStorageService = locator<LocalStorageService>();
   // final _notificationService = locator<NotificationsService>();
 
-  StartupViewModel() {}
+  StartupViewModel() {
+    _initialSetup();
+  }
 
   _initialSetup() async {
     await _localStorageService.init();
