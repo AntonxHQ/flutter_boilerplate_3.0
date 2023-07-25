@@ -8,13 +8,8 @@ class ImageContainer extends StatelessWidget {
   final double radius;
   final String assets;
   final Color? color;
-
-  /// This is for  local Asset
   final String? url;
-
-  /// This one is for Network Image,
   final BoxFit fit;
-//  final
 
   const ImageContainer({
     Key? key,
@@ -33,12 +28,13 @@ class ImageContainer extends StatelessWidget {
             height: height,
             width: width,
             decoration: BoxDecoration(
-                color: color,
-                borderRadius: BorderRadius.circular(radius),
-                image: DecorationImage(
-                  image: AssetImage(assets),
-                  fit: fit,
-                )),
+              color: color,
+              borderRadius: BorderRadius.circular(radius),
+              image: DecorationImage(
+                image: AssetImage(assets),
+                fit: fit,
+              ),
+            ),
           )
         : ClipRRect(
             borderRadius: BorderRadius.circular(radius),
