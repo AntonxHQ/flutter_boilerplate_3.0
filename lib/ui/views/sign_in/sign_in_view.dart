@@ -1,7 +1,6 @@
 import 'package:antonx_flutter_boilerplate_3/ui/common/ui_helpers.dart';
 import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
-
 import 'sign_in_viewmodel.dart';
 
 class SignInView extends StackedView<SignInViewModel> {
@@ -41,9 +40,9 @@ class SignInView extends StackedView<SignInViewModel> {
                         style: TextStyle(color: Colors.white),
                       ),
                     ),
-                    verticalSpaceMassive,
                   ],
                 ),
+                verticalSpaceLarge,
               ],
             ),
           ),
