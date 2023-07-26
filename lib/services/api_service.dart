@@ -34,7 +34,7 @@ class ApiService {
     final response = await dio
         .get('${_config.baseUrl}/$endPoint', queryParameters: params)
         .catchError((e) {
-      debugPrint('Unexpected Error');
+      debugPrint('Unexpected Error $e');
     });
     if (response.statusCode == 200) {
       return RequestResponse.fromJson(response.data);

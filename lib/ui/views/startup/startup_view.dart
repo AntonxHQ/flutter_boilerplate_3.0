@@ -10,29 +10,24 @@ class StartupView extends StackedView<StartupViewModel> {
 
   @override
   Widget builder(
-    BuildContext context,
-    StartupViewModel viewModel,
-    Widget? child,
-  ) {
-    return const Scaffold(
+      BuildContext context, StartupViewModel viewModel, Widget? child) {
+    return Scaffold(
       body: Center(
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            Text(
-              'AntonX',
-              style: TextStyle(fontSize: 40, fontWeight: FontWeight.w900),
-            ),
+            const Text('AntonX',
+                style: TextStyle(fontSize: 40, fontWeight: FontWeight.w900)),
             Row(
               mainAxisSize: MainAxisSize.min,
               children: [
-                Text('Loading ...', style: TextStyle(fontSize: 16)),
+                const Text('Loading ...', style: TextStyle(fontSize: 16)),
                 horizontalSpaceSmall,
                 SizedBox(
                   width: 16,
                   height: 16,
                   child: CircularProgressIndicator(
-                    color: Colors.black,
+                    color: Theme.of(context).primaryColor,
                     strokeWidth: 6,
                   ),
                 )

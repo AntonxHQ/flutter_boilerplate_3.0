@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
 import 'package:antonx_flutter_boilerplate_3/ui/common/app_colors.dart';
 import 'package:antonx_flutter_boilerplate_3/ui/common/ui_helpers.dart';
-
 import 'home_viewmodel.dart';
 
 class HomeView extends StackedView<HomeViewModel> {
@@ -26,16 +25,11 @@ class HomeView extends StackedView<HomeViewModel> {
                 verticalSpaceLarge,
                 Column(
                   children: [
-                    const Text(
-                      'Hello, ANTONIAN!',
-                      style: TextStyle(
-                        fontSize: 35,
-                        fontWeight: FontWeight.w900,
-                      ),
-                    ),
+                    Text('Hello, ANTONIAN!',
+                        style: Theme.of(context).textTheme.headlineLarge),
                     verticalSpaceMedium,
                     MaterialButton(
-                      color: Colors.black,
+                      color: Theme.of(context).primaryColor,
                       onPressed: viewModel.incrementCounter,
                       child: Text(
                         viewModel.counterLabel,
@@ -52,19 +46,15 @@ class HomeView extends StackedView<HomeViewModel> {
                       onPressed: viewModel.showDialog,
                       child: const Text(
                         'Show Dialog',
-                        style: TextStyle(
-                          color: Colors.white,
-                        ),
+                        style: TextStyle(color: Colors.white),
                       ),
                     ),
                     MaterialButton(
                       color: kcDarkGreyColor,
                       onPressed: viewModel.showBottomSheet,
-                      child: const Text(
+                      child: Text(
                         'Show Bottom Sheet',
-                        style: TextStyle(
-                          color: Colors.white,
-                        ),
+                        style: Theme.of(context).textTheme.bodyMedium,
                       ),
                     ),
                   ],

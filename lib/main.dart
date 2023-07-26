@@ -1,4 +1,5 @@
 import 'package:antonx_flutter_boilerplate_3/app/app.logger.dart';
+import 'package:antonx_flutter_boilerplate_3/constants/theme.dart';
 import 'package:antonx_flutter_boilerplate_3/services/config_service.dart';
 import 'package:flutter/material.dart';
 import 'package:antonx_flutter_boilerplate_3/app/app.bottomsheets.dart';
@@ -30,6 +31,8 @@ class MainApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       initialRoute: Routes.startupView,
+      theme: AppThemes().lightTheme,
+      darkTheme: AppThemes().darkTheme,
       onGenerateRoute: StackedRouter().onGenerateRoute,
       navigatorKey: StackedService.navigatorKey,
       navigatorObservers: [
