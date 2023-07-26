@@ -72,7 +72,17 @@ if (_localStorageService.onBoardingPageCount + 1 < onboardingList.length) {
       return;
     }
 ```
+## Addition of .env File
+We need  `.env` file to keep the important keys(google api keys, stripe payment keys, etc) secure. 
+```
+Steps for adding .env file:
+  - create .env file int the root of your project directory
+  - add *.env into your .gitignore file under the # Miscellaneous section
+  - add keys to file for example: google_api_key = your_google_api_keys
 
+To Fetch this key in your file:
+  - you can use dotenv for example: String googleApiKey = dotenv.env['google_api_key']!;
+```
 ## Environments and config file
 
 We have set three environments in the this template:
