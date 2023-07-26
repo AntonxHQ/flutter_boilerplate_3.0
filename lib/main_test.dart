@@ -1,3 +1,4 @@
+import 'package:accessibility_tools/accessibility_tools.dart';
 import 'package:antonx_flutter_boilerplate_3/app/app.logger.dart';
 import 'package:antonx_flutter_boilerplate_3/services/config_service.dart';
 import 'package:flutter/material.dart';
@@ -29,6 +30,14 @@ class MainApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      builder: (context, child) => AccessibilityTools(
+        // *Set to null to disable tap area checking
+        minimumTapAreas: MinimumTapAreas.material,
+        checkSemanticLabels: true,
+        // *Check for flex overflows
+        checkFontOverflows: true,
+        child: child,
+      ),
       initialRoute: Routes.startupView,
       onGenerateRoute: StackedRouter().onGenerateRoute,
       navigatorKey: StackedService.navigatorKey,
