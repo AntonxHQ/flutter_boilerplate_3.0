@@ -60,7 +60,29 @@ android {
             // Signing with the debug keys for now, so `flutter run --release` works.
             signingConfig signingConfigs.debug
         }
-    }
+    } 
+
+    flavorDimensions "app"
+        productFlavors {
+            envStage {
+                dimension "app"
+                manifestPlaceholders = [appName: "Template Stage"]
+                applicationIdSuffix ".stg" 
+                resValue "string", "app_name", "Template Stage"
+            }
+            envTest {
+                dimension "app"
+                manifestPlaceholders = [appName: "Template Test"]
+                applicationIdSuffix ".dev"
+                resValue "string", "app_name", "Template Test"
+            }
+            envProduction {
+                dimension "app"
+                applicationIdSuffix ""
+                manifestPlaceholders = [appName: "Template Prod"]
+                resValue "string", "app_name", "Template Prod"
+            }
+        }
 }
 
 flutter {
