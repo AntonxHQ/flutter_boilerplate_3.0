@@ -94,6 +94,19 @@ We have set three environments in the this template:
 We have also added config file to add configurations relevant to the environment the app is running. You can find config file at `lib/core/config_service` and there you need to set all three BaseUrls for all three envs.
 Then `ApiService` class will get the relevant base_url according to the environment the app is running in.
 
+
+## Running Various Flavors from Terminal
+We can use the following commands to run various flavors using the terminal.
+```
+To Run Production: 
+  fvm flutter run --flavor envProduction --target lib/main.dart
+
+To Run Test:
+  fvm flutter run --flavor envTest --target lib/main_test.dart
+
+To Run Dev: 
+  fvm flutter run --flavor envDev --target lib/main_dev.dart
+```
 ## API responses
 
 ## Features List
