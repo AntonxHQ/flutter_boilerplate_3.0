@@ -1,21 +1,22 @@
-import 'package:antonx_flutter_boilerplate_3/app/app.logger.dart';
-import 'package:antonx_flutter_boilerplate_3/services/authentication_service.dart';
-import 'package:antonx_flutter_boilerplate_3/services/local_storage_service.dart';
-import 'package:flutter/material.dart';
-import 'package:get/get.dart';
+import 'package:antonx_flutter_boilerplate_3/routes/routes.dart';
+import 'package:go_router/go_router.dart';
 import 'package:stacked/stacked.dart';
-import 'package:antonx_flutter_boilerplate_3/app/app.locator.dart';
-import 'package:antonx_flutter_boilerplate_3/app/app.router.dart';
+import 'package:flutter/material.dart';
 import 'package:stacked_services/stacked_services.dart';
+import 'package:antonx_flutter_boilerplate_3/app/app.logger.dart';
+import 'package:antonx_flutter_boilerplate_3/app/app.locator.dart';
+import 'package:antonx_flutter_boilerplate_3/services/local_storage_service.dart';
 
 class StartupViewModel extends BaseViewModel {
-  final _navigationService = locator<NavigationService>();
-  final _authService = locator<AuthenticationService>();
+  // final _navigationService = locator<NavigationService>();
   final _localStorageService = locator<LocalStorageService>();
   // final _notificationService = locator<NotificationsService>();
 
-  StartupViewModel() {
+  StartupViewModel(BuildContext context) {
     _initialSetup();
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      GoRouter.of(context).go(AppRoutes.homeRoute);
+    });
   }
 
   _initialSetup() async {
@@ -49,7 +50,7 @@ class StartupViewModel extends BaseViewModel {
     ///
     if (_localStorageService.onBoardingPageCount + 1 < onboardingList.length) {
       ///
-      /// For better user experience we precache onboarding images in case
+      /// For better user experience we pre cache onboarding images in case
       /// they are coming from a remote server.
       /// Remove it if onboarding is static.
       ///
@@ -86,7 +87,7 @@ class StartupViewModel extends BaseViewModel {
     // This is where you can make decisions on where your app should navigate when
     // you have custom startup logic
 
-    _navigationService.replaceWithHomeView();
+    // _navigationService.replaceWithHomeView();
   }
 
   _getOnboardingData() async {

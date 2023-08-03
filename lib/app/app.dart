@@ -15,6 +15,15 @@ import 'package:antonx_flutter_boilerplate_3/services/config_service.dart';
 import 'package:antonx_flutter_boilerplate_3/services/device_info_service.dart';
 import 'package:antonx_flutter_boilerplate_3/services/notification_service.dart';
 import 'package:antonx_flutter_boilerplate_3/services/file_picker_service.dart';
+import 'package:antonx_flutter_boilerplate_3/ui/views/login/login_view.dart';
+import 'package:antonx_flutter_boilerplate_3/ui/views/error/error_view.dart';
+import 'package:antonx_flutter_boilerplate_3/ui/views/root/root_view.dart';
+import 'package:antonx_flutter_boilerplate_3/ui/views/map/map_view.dart';
+import 'package:antonx_flutter_boilerplate_3/ui/views/profile/profile_view.dart';
+import 'package:antonx_flutter_boilerplate_3/ui/views/chat/chat_view.dart';
+import 'package:antonx_flutter_boilerplate_3/ui/views/conversation/conversation_view.dart';
+import 'package:antonx_flutter_boilerplate_3/ui/views/profile_setting/profile_setting_view.dart';
+import 'package:antonx_flutter_boilerplate_3/ui/views/detail/detail_view.dart';
 // @stacked-import
 
 @StackedApp(
@@ -22,7 +31,16 @@ import 'package:antonx_flutter_boilerplate_3/services/file_picker_service.dart';
   routes: [
     MaterialRoute(page: HomeView),
     MaterialRoute(page: StartupView),
-    // @stacked-route
+    MaterialRoute(page: LoginView),
+    MaterialRoute(page: ErrorView),
+    // MaterialRoute(page: RootView),
+    MaterialRoute(page: MapView),
+    MaterialRoute(page: ProfileView),
+    MaterialRoute(page: ChatView),
+    MaterialRoute(page: ConversationView),
+    MaterialRoute(page: ProfileSettingView),
+    MaterialRoute(page: DetailView),
+// @stacked-route
   ],
   dependencies: [
     LazySingleton(classType: BottomSheetService),

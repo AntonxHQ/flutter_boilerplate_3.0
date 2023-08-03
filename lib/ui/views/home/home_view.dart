@@ -1,19 +1,21 @@
+import 'package:antonx_flutter_boilerplate_3/app/app.logger.dart';
+import 'package:antonx_flutter_boilerplate_3/routes/routes.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:stacked/stacked.dart';
 import 'package:antonx_flutter_boilerplate_3/ui/common/app_colors.dart';
 import 'package:antonx_flutter_boilerplate_3/ui/common/ui_helpers.dart';
 import 'home_viewmodel.dart';
 
+// ignore: must_be_immutable
 class HomeView extends StackedView<HomeViewModel> {
-  const HomeView({Key? key}) : super(key: key);
+  var log = getLogger("Home");
 
+  HomeView({super.key});
   @override
-  Widget builder(
-    BuildContext context,
-    HomeViewModel viewModel,
-    Widget? child,
-  ) {
+  Widget builder(BuildContext context, HomeViewModel viewModel, Widget? child) {
     return Scaffold(
+      backgroundColor: kcWhiteColor,
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 25.0),
@@ -25,40 +27,60 @@ class HomeView extends StackedView<HomeViewModel> {
                 verticalSpaceLarge,
                 Column(
                   children: [
-                    Text('Hello, ANTONIAN!',
+                    Text('Hello AntonX',
                         style: Theme.of(context).textTheme.headlineLarge),
-                    verticalSpaceMedium,
                     MaterialButton(
-                      color: Theme.of(context).primaryColor,
+                      color:
+                          Theme.of(context).buttonTheme.colorScheme?.background,
                       onPressed: viewModel.incrementCounter,
                       child: Text(
                         viewModel.counterLabel,
                         style: const TextStyle(color: Colors.white),
                       ),
                     ),
-                  ],
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
+                    verticalSpaceMedium,
                     MaterialButton(
-                      color: kcDarkGreyColor,
-                      onPressed: viewModel.showDialog,
+                      color:
+                          Theme.of(context).buttonTheme.colorScheme?.background,
+                      onPressed: () {
+                        log.wtf("detail button clicked");
+                        GoRouter.of(context)
+                            .go("${AppRoutes.homeRoute}/detail");
+                      },
                       child: const Text(
-                        'Show Dialog',
+                        "Detail Page",
                         style: TextStyle(color: Colors.white),
                       ),
                     ),
-                    MaterialButton(
-                      color: kcDarkGreyColor,
-                      onPressed: viewModel.showBottomSheet,
-                      child: Text(
-                        'Show Bottom Sheet',
-                        style: Theme.of(context).textTheme.bodyMedium,
-                      ),
-                    ),
                   ],
-                )
+                ),
+                verticalSpaceLarge,
+                // Row(
+                //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                //   children: [
+                //     MaterialButton(
+                //       minWidth: 120,
+                //       color: kcLightGrey,
+                //       onPressed: viewModel.showDialog,
+                //       child: Text(
+                //         'Show Dialog',
+                //         style: Theme.of(context)
+                //             .textTheme
+                //             .bodyMedium
+                //             ?.copyWith(fontSize: 10),
+                //       ),
+                //     ),
+                //     MaterialButton(
+                //       minWidth: 120,
+                //       color: kcLightGrey,
+                //       onPressed: viewModel.showBottomSheet,
+                //       child: Text(
+                //         'Bottom Sheet',
+                //         style: Theme.of(context).textTheme.bodyMedium,
+                //       ),
+                //     ),
+                //   ],
+                // )
               ],
             ),
           ),
@@ -68,8 +90,5 @@ class HomeView extends StackedView<HomeViewModel> {
   }
 
   @override
-  HomeViewModel viewModelBuilder(
-    BuildContext context,
-  ) =>
-      HomeViewModel();
+  HomeViewModel viewModelBuilder(BuildContext context) => HomeViewModel();
 }
