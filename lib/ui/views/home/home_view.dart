@@ -1,6 +1,7 @@
 import 'package:antonx_flutter_boilerplate_3/app/app.logger.dart';
 import 'package:antonx_flutter_boilerplate_3/routes/routes.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:stacked/stacked.dart';
 import 'package:antonx_flutter_boilerplate_3/ui/common/app_colors.dart';
@@ -30,6 +31,7 @@ class HomeView extends StackedView<HomeViewModel> {
                     Text('Hello AntonX',
                         style: Theme.of(context).textTheme.headlineLarge),
                     MaterialButton(
+                      // height: 48.h,
                       color:
                           Theme.of(context).buttonTheme.colorScheme?.background,
                       onPressed: viewModel.incrementCounter,
@@ -40,6 +42,7 @@ class HomeView extends StackedView<HomeViewModel> {
                     ),
                     verticalSpaceMedium,
                     MaterialButton(
+                      // height: 48.h,
                       color:
                           Theme.of(context).buttonTheme.colorScheme?.background,
                       onPressed: () {

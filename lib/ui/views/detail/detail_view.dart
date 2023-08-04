@@ -12,11 +12,14 @@ class DetailView extends StackedView<DetailViewModel> {
       BuildContext context, DetailViewModel viewModel, Widget? child) {
     return Scaffold(
       appBar: AppBar(
-        leading: GestureDetector(
+        leading: InkWell(
           onTap: () {
             context.pop();
           },
-          child: const Icon(Icons.arrow_back),
+          child: const Icon(
+            Icons.arrow_back,
+            semanticLabel: "back",
+          ),
         ),
         title: const Text("Detail VIew"),
       ),

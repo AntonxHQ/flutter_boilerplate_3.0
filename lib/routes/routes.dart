@@ -8,4 +8,5 @@ class AppRoutes {
   static const detailRoute = "/detail";
   static const chatRoute = "/chat";
   static const rootRoute = "/root";
+  static const signInRoute = "/signIn";
 }

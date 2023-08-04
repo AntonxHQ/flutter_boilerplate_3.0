@@ -14,9 +14,9 @@ import 'package:stacked/stacked_annotations.dart';
 Future<void> main() async {
   final log = getLogger('main');
   WidgetsFlutterBinding.ensureInitialized();
-  log.i('@main');
+  log.i('@main_test');
   await setupLocator(
-    environment: Environment.prod,
+    environment: Environment.test,
   );
 
   log.i('get base user ${locator<ConfigService>().baseUrl}');

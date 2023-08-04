@@ -1,48 +1,61 @@
+import 'package:antonx_flutter_boilerplate_3/app/app.dialogs.dart';
+import 'package:antonx_flutter_boilerplate_3/app/app.locator.dart';
+import 'package:antonx_flutter_boilerplate_3/app/app.logger.dart';
 import 'package:antonx_flutter_boilerplate_3/routes/routes.dart';
+import 'package:antonx_flutter_boilerplate_3/services/authentication_service.dart';
+import 'package:antonx_flutter_boilerplate_3/services/local_storage_service.dart';
+// import 'package:antonx_flutter_boilerplate_3/services/notification_service.dart';
+import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:stacked/stacked.dart';
-import 'package:flutter/material.dart';
 import 'package:stacked_services/stacked_services.dart';
-import 'package:antonx_flutter_boilerplate_3/app/app.logger.dart';
-import 'package:antonx_flutter_boilerplate_3/app/app.locator.dart';
-import 'package:antonx_flutter_boilerplate_3/services/local_storage_service.dart';
 
 class StartupViewModel extends BaseViewModel {
   // final _navigationService = locator<NavigationService>();
+  // final _notificationService = locator<NotificationService>();
   final _localStorageService = locator<LocalStorageService>();
-  // final _notificationService = locator<NotificationsService>();
+  final _dialogService = locator<DialogService>();
+  final _authService = locator<AuthenticationService>();
 
   StartupViewModel(BuildContext context) {
-    _initialSetup();
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      GoRouter.of(context).go(AppRoutes.homeRoute);
-    });
+    runStartupLogic(context);
   }
 
-  _initialSetup() async {
+  // Place anything here that needs to happen before we get into the application
+  Future runStartupLogic(context) async {
+    // await Future.delayed(const Duration(seconds: 3));
+    await _initialSetup(context);
+
+    // This is where you can make decisions on where your app should navigate when
+    // you have custom startup logic
+
+    // _navigationService.replaceWithHomeView();
+  }
+
+  _initialSetup(BuildContext context) async {
     await _localStorageService.init();
 
-    ///
-    /// If not connected to internet, show an alert dialog
-    /// to activate the network connection.
-    ///
+    // /
+    // / If not connected to internet, show an alert dialog
+    // / to activate the network connection.
+    // /
     // final connectivityResult = await Connectivity().checkConnectivity();
     // if (connectivityResult == ConnectivityResult.none) {
-    //   Get.dialog(const NetworkErrorDialog());
+    //   showDialog();
     //   return;
     // }
 
-    ///
-    ///initializing notification services
-    ///
+    // /
+    // /initializing notification services
+    // /
 
     // await _notificationService.initConfigure();
 
-    ///
-    /// Use the below [_getOnboardingData] method if the
-    /// onboarding is dynamic (Means onboarding data coming from
-    /// the apis)
-    ///
+    // /
+    // / Use the below [_getOnboardingData] method if the
+    // / onboarding is dynamic (Means onboarding data coming from
+    // / the apis)
+    // /
     onboardingList = await _getOnboardingData();
 
     ///
@@ -64,31 +77,25 @@ class StartupViewModel extends BaseViewModel {
       //     preCachedImages: preCachedImages));
       return;
     }
-    // await _authService.doSetup();
+    await _authService.doSetup();
 
-    ///
-    ///checking if the user is login or not
-    ///
-    // log.d('@_initialSetup. Login State: ${_authService.isLogin}');
-    // if (_authService.isLogin) {
-    //   Get.off(() => const RootScreen());
-    // } else {
-    //   Get.off(() => LoginScreen());
-    // }
+    // /
+    // /checking if the user is login or not
+    // /
+    log.d('@_initialSetup. Login State: ${_authService.isLogin}');
+    if (_authService.isLogin) {
+      // _navigationService.replaceWithHomeView();
+      // ignore: use_build_context_synchronously
+      GoRouter.of(context).go(AppRoutes.homeRoute);
+    } else {
+      // ignore: use_build_context_synchronously
+      GoRouter.of(context).go(AppRoutes.signInRoute);
+      // _navigationService.replaceWithSignInView();
+    }
   }
 
   List<Widget> onboardingList = [];
   final log = getLogger('Splash Screen');
-
-  // Place anything here that needs to happen before we get into the application
-  Future runStartupLogic() async {
-    await Future.delayed(const Duration(seconds: 3));
-
-    // This is where you can make decisions on where your app should navigate when
-    // you have custom startup logic
-
-    // _navigationService.replaceWithHomeView();
-  }
 
   _getOnboardingData() async {
     ///uncomment below code
@@ -101,5 +108,14 @@ class StartupViewModel extends BaseViewModel {
     // }
     List<Widget> onboardings = [];
     return onboardings;
+  }
+
+  void showDialog() {
+    _dialogService.showCustomDialog(
+      variant: DialogType.infoAlert,
+      title: 'No Internet',
+      description:
+          'Your internet connection is not stable. Please connect to internet and try again.',
+    );
   }
 }

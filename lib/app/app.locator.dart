@@ -6,22 +6,21 @@
 
 // ignore_for_file: public_member_api_docs, implementation_imports, depend_on_referenced_packages
 
+import 'package:antonx_flutter_boilerplate_3/services/api_service.dart';
+import 'package:antonx_flutter_boilerplate_3/services/authentication_service.dart';
+import 'package:antonx_flutter_boilerplate_3/services/config_service.dart';
+import 'package:antonx_flutter_boilerplate_3/services/database_service.dart';
+import 'package:antonx_flutter_boilerplate_3/services/date_time_service.dart';
+import 'package:antonx_flutter_boilerplate_3/services/device_info_service.dart';
+import 'package:antonx_flutter_boilerplate_3/services/file_picker_service.dart';
+import 'package:antonx_flutter_boilerplate_3/services/local_storage_service.dart';
+import 'package:antonx_flutter_boilerplate_3/services/localization_service.dart';
+import 'package:antonx_flutter_boilerplate_3/services/location_service.dart';
+import 'package:antonx_flutter_boilerplate_3/services/notification_service.dart';
 import 'package:stacked_services/src/bottom_sheet/bottom_sheet_service.dart';
 import 'package:stacked_services/src/dialog/dialog_service.dart';
 import 'package:stacked_services/src/navigation/navigation_service.dart';
 import 'package:stacked_shared/stacked_shared.dart';
-
-import '../services/api_service.dart';
-import '../services/authentication_service.dart';
-import '../services/config_service.dart';
-import '../services/database_service.dart';
-import '../services/date_time_service.dart';
-import '../services/device_info_service.dart';
-import '../services/file_picker_service.dart';
-import '../services/local_storage_service.dart';
-import '../services/localization_service.dart';
-import '../services/location_service.dart';
-import '../services/notification_service.dart';
 
 final locator = StackedLocator.instance;
 

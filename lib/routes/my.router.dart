@@ -9,6 +9,7 @@ import 'package:antonx_flutter_boilerplate_3/ui/views/map/map_view.dart';
 import 'package:antonx_flutter_boilerplate_3/ui/views/profile/profile_view.dart';
 import 'package:antonx_flutter_boilerplate_3/ui/views/root/root_view.dart';
 import 'package:antonx_flutter_boilerplate_3/ui/views/profile_setting/profile_setting_view.dart';
+import 'package:antonx_flutter_boilerplate_3/ui/views/sign_in/sign_in_view.dart';
 import 'package:antonx_flutter_boilerplate_3/ui/views/startup/startup_view.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
@@ -35,6 +36,12 @@ class AppRouter {
       GoRoute(
         path: AppRoutes.startupRoute,
         builder: (context, state) => const StartupView(),
+      ),
+
+      ///sign in view
+      GoRoute(
+        path: AppRoutes.signInRoute,
+        builder: (context, state) => const SignInView(),
       ),
 
       ///SHELL ROUTE
