@@ -1,1 +1,4 @@
-flutter packages pub run build_runner build --delete-conflicting-outputs  
+flutter pub clean;
+flutter pub get;
+flutter run;
+# flutter build appbundle;

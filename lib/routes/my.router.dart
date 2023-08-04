@@ -17,18 +17,26 @@ final GlobalKey<NavigatorState> _rootNavigatorKey = GlobalKey<NavigatorState>();
 final GlobalKey<NavigatorState> _shellNavigatorKey =
     GlobalKey<NavigatorState>();
 
-class RouterClass {
+class AppRouter {
   /// GoRouter configuration
   final GoRouter _router = GoRouter(
     navigatorKey: _rootNavigatorKey,
+
+    ///
     errorBuilder: (context, state) =>
         ErrorView(errorDetails: state.error.toString()),
+
+    ///
     initialLocation: AppRoutes.startupRoute,
+
+    ///
     routes: <RouteBase>[
+      ///start up view
       GoRoute(
         path: AppRoutes.startupRoute,
         builder: (context, state) => const StartupView(),
       ),
+
       ///SHELL ROUTE
       ShellRoute(
         navigatorKey: _shellNavigatorKey,

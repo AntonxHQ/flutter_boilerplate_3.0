@@ -33,7 +33,7 @@ class MainApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: AppThemes().lightTheme,
       darkTheme: AppThemes().darkTheme,
-      routerConfig: RouterClass().router,
+      routerConfig: AppRouter().router,
       // routerDelegate: RouterClass().router.routerDelegate,
       // routeInformationParser: RouterClass().router.routeInformationParser,
       // routeInformationProvider: RouterClass().router.routeInformationProvider,
