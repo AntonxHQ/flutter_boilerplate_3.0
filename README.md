@@ -144,4 +144,33 @@ The features already added include:
 - Localization services
 - Custom logger for better debugging
 
+## Theme
+* Theme is define in AppTheme file using ThemeData class.
+
+# use theme
+  MaterialApp(
+      theme: myTheme,
+      darkTheme: myDarkTheme,
+      home: MyHomePage(),
+    );
+
+# example
+ Text(
+ 'Headline 1',        
+  style: Theme.of(context).textTheme.headline1,
+ ),
+
+## Go Router
+* Routes are define in AppRoutes file
+* Router object is define in AppRouter file
+
+# main file
+* MaterialApp.route(
+    routerConfig: AppRouter().router,
+)
+
+# usage (works on context too)
+context.go(AppRoutes.chat);
+GoRouter.of(context).go(AppRoutes.chat);
+
 Future planned features:
