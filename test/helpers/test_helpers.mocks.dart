@@ -799,6 +799,18 @@ class MockLocalStorageService extends _i1.Mock
 /// See the documentation for Mockito's code generation for more information.
 class MockApiService extends _i1.Mock implements _i14.ApiService {
   @override
+  _i2.Logger get log => (super.noSuchMethod(
+        Invocation.getter(#log),
+        returnValue: _FakeLogger_0(
+          this,
+          Invocation.getter(#log),
+        ),
+        returnValueForMissingStub: _FakeLogger_0(
+          this,
+          Invocation.getter(#log),
+        ),
+      ) as _i2.Logger);
+  @override
   _i11.Future<_i3.Dio> launchDio() => (super.noSuchMethod(
         Invocation.method(
           #launchDio,

@@ -1,24 +1,30 @@
 import 'package:antonx_flutter_boilerplate_3/app/app.dialogs.dart';
 import 'package:antonx_flutter_boilerplate_3/app/app.locator.dart';
 import 'package:antonx_flutter_boilerplate_3/app/app.logger.dart';
-import 'package:antonx_flutter_boilerplate_3/app/app.router.dart';
+import 'package:antonx_flutter_boilerplate_3/routes/routes.dart';
 import 'package:antonx_flutter_boilerplate_3/services/authentication_service.dart';
 import 'package:antonx_flutter_boilerplate_3/services/local_storage_service.dart';
+// import 'package:antonx_flutter_boilerplate_3/services/notification_service.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:stacked/stacked.dart';
 import 'package:stacked_services/stacked_services.dart';
 
 class StartupViewModel extends BaseViewModel {
-  final _navigationService = locator<NavigationService>();
-  final _authService = locator<AuthenticationService>();
-  final _localStorageService = locator<LocalStorageService>();
+  // final _navigationService = locator<NavigationService>();
   // final _notificationService = locator<NotificationService>();
+  final _localStorageService = locator<LocalStorageService>();
   final _dialogService = locator<DialogService>();
+  final _authService = locator<AuthenticationService>();
+
+  StartupViewModel(BuildContext context) {
+    runStartupLogic(context);
+  }
 
   // Place anything here that needs to happen before we get into the application
-  Future runStartupLogic() async {
+  Future runStartupLogic(context) async {
     // await Future.delayed(const Duration(seconds: 3));
-    await _initialSetup();
+    await _initialSetup(context);
 
     // This is where you can make decisions on where your app should navigate when
     // you have custom startup logic
@@ -26,7 +32,7 @@ class StartupViewModel extends BaseViewModel {
     // _navigationService.replaceWithHomeView();
   }
 
-  _initialSetup() async {
+  _initialSetup(BuildContext context) async {
     await _localStorageService.init();
 
     // /
@@ -57,7 +63,7 @@ class StartupViewModel extends BaseViewModel {
     ///
     if (_localStorageService.onBoardingPageCount + 1 < onboardingList.length) {
       ///
-      /// For better user experience we precache onboarding images in case
+      /// For better user experience we pre cache onboarding images in case
       /// they are coming from a remote server.
       /// Remove it if onboarding is static.
       ///
@@ -78,9 +84,13 @@ class StartupViewModel extends BaseViewModel {
     // /
     log.d('@_initialSetup. Login State: ${_authService.isLogin}');
     if (_authService.isLogin) {
-      _navigationService.replaceWithHomeView();
+      // _navigationService.replaceWithHomeView();
+      // ignore: use_build_context_synchronously
+      GoRouter.of(context).go(AppRoutes.homeRoute);
     } else {
-      _navigationService.replaceWithSignInView();
+      // ignore: use_build_context_synchronously
+      GoRouter.of(context).go(AppRoutes.signInRoute);
+      // _navigationService.replaceWithSignInView();
     }
   }
 

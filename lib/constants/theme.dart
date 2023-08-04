@@ -12,13 +12,13 @@ class AppThemes {
     focusColor: kcPrimaryColor,
     hoverColor: kcPrimaryColor,
     splashColor: kcPrimaryColor,
-    brightness: Brightness.light,
+    // brightness: Brightness.light,
     dividerColor: kcPrimaryColor,
     disabledColor: kcPrimaryColor,
     indicatorColor: kcPrimaryColor,
     primaryColor: kcBackgroundColor,
     dialogBackgroundColor: kcWhiteColor,
-    scaffoldBackgroundColor: kcGreyColor,
+    scaffoldBackgroundColor: kcWhiteColor,
     visualDensity: VisualDensity.adaptivePlatformDensity,
 
     ///TEXT FIELD THEME
@@ -39,8 +39,11 @@ class AppThemes {
     ),
 
     ///COLOR SCHEME
-    colorScheme:
-        const ColorScheme.light(background: kcLightGrey, error: kcPrimaryColor),
+    colorScheme: const ColorScheme.light(
+      background: kcLightGrey,
+      error: kcPrimaryColor,
+      brightness: Brightness.light,
+    ),
 
     ///FLOATING ACTION BUTTON THEME
     floatingActionButtonTheme: const FloatingActionButtonThemeData(
@@ -64,9 +67,12 @@ class AppThemes {
       bodyLarge: TextStyle(color: kcPrimaryColor, fontSize: 14),
 
       ///
-      headlineMedium: TextStyle(color: kcPrimaryColor, fontSize: 14),
+      headlineMedium: TextStyle(color: kcWhiteColor, fontSize: 14),
       headlineLarge: TextStyle(
-          fontSize: 35, fontWeight: FontWeight.w900, color: kcWhiteColor),
+        fontSize: 35,
+        fontWeight: FontWeight.w900,
+        color: kcBackgroundColor,
+      ),
       headlineSmall: TextStyle(color: kcPrimaryColor, fontSize: 14),
 
       ///
@@ -100,6 +106,19 @@ class AppThemes {
       focusColor: kcLightGrey,
       disabledColor: kcGreyColor,
       splashColor: kcMediumGrey,
+      colorScheme: ColorScheme(
+        brightness: Brightness.light,
+        primary: kcPrimaryColor,
+        onPrimary: kcPrimaryColor,
+        secondary: kcPrimaryColor,
+        onSecondary: kcPrimaryColor,
+        error: kcPrimaryColor,
+        onError: kcPrimaryColor,
+        background: kcBackgroundColor,
+        onBackground: kcPrimaryColor,
+        surface: kcPrimaryColor,
+        onSurface: kcPrimaryColor,
+      ),
       padding: EdgeInsets.all(8),
       height: 40,
       minWidth: 200,
@@ -115,7 +134,7 @@ class AppThemes {
       focusColor: kcPrimaryColor,
       hoverColor: kcPrimaryColor,
       splashColor: kcPrimaryColor,
-      brightness: Brightness.light,
+      // brightness: Brightness.light,
       dividerColor: kcPrimaryColor,
       disabledColor: kcPrimaryColor,
       indicatorColor: kcPrimaryColor,
@@ -123,7 +142,12 @@ class AppThemes {
       dialogBackgroundColor: kcWhiteColor,
       scaffoldBackgroundColor: kcGreyColor,
       visualDensity: VisualDensity.adaptivePlatformDensity,
-      colorScheme: const ColorScheme.dark(background: kcLightGrey),
+
+      ///COLOR SCHEME
+      colorScheme: const ColorScheme.light(
+          brightness: Brightness.dark,
+          background: kcLightGrey,
+          error: kcPrimaryColor),
 
       ///TEXT FIELD THEME
       inputDecorationTheme: InputDecorationTheme(

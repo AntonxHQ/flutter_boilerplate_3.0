@@ -26,6 +26,8 @@ class ConfigService {
       _baseUrl = _testBaseUrl;
     } else if (_env == Environment.dev) {
       _baseUrl = _devBaseUrl;
+    } else {
+      _baseUrl = _prodBaseUrl;
     }
   }
 }

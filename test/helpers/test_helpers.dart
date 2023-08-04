@@ -178,6 +178,7 @@ MockFilePickerService getAndRegisterFilePickerService() {
   locator.registerSingleton<FilePickerService>(service);
   return service;
 }
+
 // @stacked-mock-create
 
 void _removeRegistrationIfExists<T extends Object>() {

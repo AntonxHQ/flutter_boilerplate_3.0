@@ -4,6 +4,7 @@ import 'package:antonx_flutter_boilerplate_3/services/authentication_service.dar
 import 'package:antonx_flutter_boilerplate_3/services/local_storage_service.dart';
 import 'package:antonx_flutter_boilerplate_3/ui/views/sign_in/sign_in_view.dart';
 import 'package:dio/dio.dart';
+// ignore: library_prefixes
 import 'package:get/get.dart' as getX;
 
 class TokenInterceptor extends Interceptor {

@@ -16,7 +16,7 @@ class StartupView extends StackedView<StartupViewModel> {
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            const Text('AntonX',
+            const Text('antonx',
                 style: TextStyle(fontSize: 40, fontWeight: FontWeight.w900)),
             Row(
               mainAxisSize: MainAxisSize.min,
@@ -40,12 +40,12 @@ class StartupView extends StackedView<StartupViewModel> {
   }
 
   @override
-  StartupViewModel viewModelBuilder(
-    BuildContext context,
-  ) =>
-      StartupViewModel();
+  StartupViewModel viewModelBuilder(BuildContext context) =>
+      StartupViewModel(context);
 
   @override
-  void onViewModelReady(StartupViewModel viewModel) => SchedulerBinding.instance
-      .addPostFrameCallback((timeStamp) => viewModel.runStartupLogic());
+  void onViewModelReady(StartupViewModel viewModel) =>
+      SchedulerBinding.instance.addPostFrameCallback((timeStamp) {
+        // viewModel.runStartupLogic();
+      });
 }

@@ -1,5 +1,7 @@
+import 'package:antonx_flutter_boilerplate_3/routes/routes.dart';
 import 'package:antonx_flutter_boilerplate_3/ui/common/ui_helpers.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:stacked/stacked.dart';
 import 'sign_in_viewmodel.dart';
 
@@ -34,7 +36,7 @@ class SignInView extends StackedView<SignInViewModel> {
                     verticalSpaceMedium,
                     MaterialButton(
                       color: Colors.black,
-                      onPressed: viewModel.navigateToHomeScreen,
+                      onPressed: () => context.go(AppRoutes.homeRoute),
                       child: const Text(
                         'Login',
                         style: TextStyle(color: Colors.white),
@@ -52,8 +54,6 @@ class SignInView extends StackedView<SignInViewModel> {
   }
 
   @override
-  SignInViewModel viewModelBuilder(
-    BuildContext context,
-  ) =>
-      SignInViewModel();
+  SignInViewModel viewModelBuilder(BuildContext context) =>
+      SignInViewModel(context);
 }

@@ -35,7 +35,6 @@ class ApiService {
     return dio;
   }
 
-
   get({
     required String endPoint,
     params,
