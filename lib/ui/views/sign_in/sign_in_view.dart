@@ -36,7 +36,7 @@ class SignInView extends StackedView<SignInViewModel> {
                     verticalSpaceMedium,
                     MaterialButton(
                       color: Colors.black,
-                      onPressed: () => context.go(AppRoutes.homeRoute),
+                      onPressed: () => context.go(AppRoutes.home),
                       child: const Text(
                         'Login',
                         style: TextStyle(color: Colors.white),

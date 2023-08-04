@@ -31,7 +31,6 @@ class HomeView extends StackedView<HomeViewModel> {
                     Text('Hello AntonX',
                         style: Theme.of(context).textTheme.headlineLarge),
                     MaterialButton(
-                      // height: 48.h,
                       color:
                           Theme.of(context).buttonTheme.colorScheme?.background,
                       onPressed: viewModel.incrementCounter,
@@ -42,16 +41,31 @@ class HomeView extends StackedView<HomeViewModel> {
                     ),
                     verticalSpaceMedium,
                     MaterialButton(
-                      // height: 48.h,
                       color:
                           Theme.of(context).buttonTheme.colorScheme?.background,
                       onPressed: () {
                         log.wtf("detail button clicked");
+
+                        ///
                         GoRouter.of(context)
-                            .go("${AppRoutes.homeRoute}/detail");
+                            .go("${AppRoutes.home}${AppRoutes.detail}");
                       },
                       child: const Text(
                         "Detail Page",
+                        style: TextStyle(color: Colors.white),
+                      ),
+                    ),
+                    verticalSpaceMedium,
+                    MaterialButton(
+                      color:
+                          Theme.of(context).buttonTheme.colorScheme?.background,
+                      onPressed: () {
+                        ///
+                        GoRouter.of(context)
+                            .go("${AppRoutes.conversation}${AppRoutes.chat}");
+                      },
+                      child: const Text(
+                        "Chat View",
                         style: TextStyle(color: Colors.white),
                       ),
                     ),

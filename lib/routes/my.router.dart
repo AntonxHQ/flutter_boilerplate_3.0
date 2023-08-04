@@ -28,19 +28,19 @@ class AppRouter {
         ErrorView(errorDetails: state.error.toString()),
 
     ///
-    initialLocation: AppRoutes.startupRoute,
+    initialLocation: AppRoutes.startup,
 
     ///
     routes: <RouteBase>[
       ///start up view
       GoRoute(
-        path: AppRoutes.startupRoute,
+        path: AppRoutes.startup,
         builder: (context, state) => const StartupView(),
       ),
 
       ///sign in view
       GoRoute(
-        path: AppRoutes.signInRoute,
+        path: AppRoutes.signIn,
         builder: (context, state) => const SignInView(),
       ),
 
@@ -54,7 +54,7 @@ class AppRouter {
         routes: [
           ///home
           GoRoute(
-            path: AppRoutes.homeRoute,
+            path: AppRoutes.home,
             parentNavigatorKey: _shellNavigatorKey,
             builder: (BuildContext context, GoRouterState state) {
               return HomeView();
@@ -72,7 +72,7 @@ class AppRouter {
 
           ///conversation
           GoRoute(
-            path: AppRoutes.conversationRoute,
+            path: AppRoutes.conversation,
             parentNavigatorKey: _shellNavigatorKey,
             builder: (BuildContext context, GoRouterState state) {
               return const ConversationView();
@@ -90,7 +90,7 @@ class AppRouter {
 
           ///map
           GoRoute(
-            path: AppRoutes.mapRoute,
+            path: AppRoutes.map,
             parentNavigatorKey: _shellNavigatorKey,
             builder: (BuildContext context, GoRouterState state) {
               return const MapView();
@@ -99,7 +99,7 @@ class AppRouter {
 
           ///profile
           GoRoute(
-            path: AppRoutes.profileRoute,
+            path: AppRoutes.profile,
             parentNavigatorKey: _shellNavigatorKey,
             builder: (BuildContext context, GoRouterState state) {
               return const ProfileView();
