@@ -86,10 +86,10 @@ class StartupViewModel extends BaseViewModel {
     if (_authService.isLogin) {
       // _navigationService.replaceWithHomeView();
       // ignore: use_build_context_synchronously
-      GoRouter.of(context).go(AppRoutes.homeRoute);
+      GoRouter.of(context).go(AppRoutes.home);
     } else {
       // ignore: use_build_context_synchronously
-      GoRouter.of(context).go(AppRoutes.signInRoute);
+      GoRouter.of(context).go(AppRoutes.signIn);
       // _navigationService.replaceWithSignInView();
     }
   }
