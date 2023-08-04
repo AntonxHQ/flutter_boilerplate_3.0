@@ -1,7 +1,5 @@
-import 'package:antonx_flutter_boilerplate_3/ui/common/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
-
 import 'map_viewmodel.dart';
 
 class MapView extends StackedView<MapViewModel> {

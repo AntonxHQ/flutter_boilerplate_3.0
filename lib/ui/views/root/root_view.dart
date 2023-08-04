@@ -1,7 +1,6 @@
 import 'package:antonx_flutter_boilerplate_3/app/app.logger.dart';
 import 'package:antonx_flutter_boilerplate_3/ui/common/app_colors.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get_rx/src/rx_typedefs/rx_typedefs.dart';
 import 'package:go_router/go_router.dart';
 import 'package:stacked/stacked.dart';
 import 'root_viewmodel.dart';

@@ -5,12 +5,10 @@ import 'package:antonx_flutter_boilerplate_3/ui/views/conversation/conversation_
 import 'package:antonx_flutter_boilerplate_3/ui/views/detail/detail_view.dart';
 import 'package:antonx_flutter_boilerplate_3/ui/views/error/error_view.dart';
 import 'package:antonx_flutter_boilerplate_3/ui/views/home/home_view.dart';
-import 'package:antonx_flutter_boilerplate_3/ui/views/login/login_view.dart';
 import 'package:antonx_flutter_boilerplate_3/ui/views/map/map_view.dart';
 import 'package:antonx_flutter_boilerplate_3/ui/views/profile/profile_view.dart';
 import 'package:antonx_flutter_boilerplate_3/ui/views/root/root_view.dart';
 import 'package:antonx_flutter_boilerplate_3/ui/views/profile_setting/profile_setting_view.dart';
-import 'package:antonx_flutter_boilerplate_3/ui/views/root/root_view.dart';
 import 'package:antonx_flutter_boilerplate_3/ui/views/startup/startup_view.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';

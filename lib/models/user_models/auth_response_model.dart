@@ -6,9 +6,8 @@ class AuthResponseModel {
   AuthResponseModel({this.customer, this.token});
 
   AuthResponseModel.fromJson(Map<String, dynamic> json) {
-    customer = json['customer'] != null
-        ? new Customer.fromJson(json['customer'])
-        : null;
+    customer =
+        json['customer'] != null ? Customer.fromJson(json['customer']) : null;
     token = json['token'];
     firebaseLoginToken = json['firebase_custom_token'];
   }
@@ -46,7 +45,7 @@ class Customer {
     status = json['status'];
     phoneNumber = json['phone_number'];
     profileImage = json['profile_image'];
-    user = json['user'] != null ? new User.fromJson(json['user']) : null;
+    user = json['user'] != null ? User.fromJson(json['user']) : null;
   }
 
   Map<String, dynamic> toJson() {

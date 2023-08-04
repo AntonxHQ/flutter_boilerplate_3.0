@@ -17,7 +17,6 @@ import 'package:antonx_flutter_boilerplate_3/services/notification_service.dart'
 import 'package:antonx_flutter_boilerplate_3/services/file_picker_service.dart';
 import 'package:antonx_flutter_boilerplate_3/ui/views/login/login_view.dart';
 import 'package:antonx_flutter_boilerplate_3/ui/views/error/error_view.dart';
-import 'package:antonx_flutter_boilerplate_3/ui/views/root/root_view.dart';
 import 'package:antonx_flutter_boilerplate_3/ui/views/map/map_view.dart';
 import 'package:antonx_flutter_boilerplate_3/ui/views/profile/profile_view.dart';
 import 'package:antonx_flutter_boilerplate_3/ui/views/chat/chat_view.dart';
