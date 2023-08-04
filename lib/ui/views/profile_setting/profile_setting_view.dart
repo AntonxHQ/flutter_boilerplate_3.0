@@ -4,8 +4,11 @@ import 'package:stacked/stacked.dart';
 import 'profile_setting_viewmodel.dart';
 
 class ProfileSettingView extends StackedView<ProfileSettingViewModel> {
-  const ProfileSettingView({Key? key}) : super(key: key);
-
+  const ProfileSettingView({
+    Key? key,
+    this.id,
+  }) : super(key: key);
+  final String? id;
   @override
   Widget builder(
     BuildContext context,

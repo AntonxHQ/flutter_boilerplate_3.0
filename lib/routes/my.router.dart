@@ -106,10 +106,11 @@ class AppRouter {
             },
             routes: <RouteBase>[
               GoRoute(
-                path: 'profile_setting',
                 parentNavigatorKey: _shellNavigatorKey,
-                builder: (BuildContext context, GoRouterState state) {
-                  return const ProfileSettingView();
+                path: 'profile_setting/:id',
+                builder: (context, state) {
+                  final id = state.pathParameters['id'];
+                  return ProfileSettingView(id: id);
                 },
               ),
             ],
