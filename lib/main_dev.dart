@@ -1,6 +1,5 @@
 import 'package:accessibility_tools/accessibility_tools.dart';
 import 'package:antonx_flutter_boilerplate_3/app/app.logger.dart';
-import 'package:antonx_flutter_boilerplate_3/constants/theme.dart';
 import 'package:antonx_flutter_boilerplate_3/services/config_service.dart';
 import 'package:flutter/material.dart';
 import 'package:antonx_flutter_boilerplate_3/app/app.bottomsheets.dart';
@@ -14,9 +13,9 @@ import 'package:stacked_services/stacked_services.dart';
 Future<void> main() async {
   final log = getLogger('main');
   WidgetsFlutterBinding.ensureInitialized();
-  log.i('@main');
+  log.i('@main_dev');
   await setupLocator(
-    environment: Environment.prod,
+    environment: Environment.dev,
   );
 
   log.i('get base user ${locator<ConfigService>().baseUrl}');
@@ -32,12 +31,11 @@ class MainApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ScreenUtilInit(
-      designSize: const Size(360, 690),
       builder: (context, child) => MaterialApp(
         builder: (context, child) => AccessibilityTools(
           // *Set to null to disable tap area checking
           minimumTapAreas: MinimumTapAreas.material,
-          checkSemanticLabels: false,
+          checkSemanticLabels: true,
           // *Check for flex overflows
           checkFontOverflows: true,
           child: child,

@@ -43,7 +43,9 @@ Future<void> setupLocator({
   locator.registerLazySingleton(() => DateTimeService());
   locator.registerLazySingleton(() => LocationService());
   locator.registerLazySingleton(() => LocalizationService());
-  locator.registerLazySingleton(() => ConfigService("@devUrl"));
+  locator.registerLazySingleton(() => ConfigService(
+        environment ?? Environment.test,
+      ));
   locator.registerLazySingleton(() => DeviceInfoService());
   locator.registerLazySingleton(() => NotificationService());
   locator.registerLazySingleton(() => FilePickerService());

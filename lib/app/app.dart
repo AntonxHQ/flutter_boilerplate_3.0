@@ -15,6 +15,7 @@ import 'package:antonx_flutter_boilerplate_3/services/config_service.dart';
 import 'package:antonx_flutter_boilerplate_3/services/device_info_service.dart';
 import 'package:antonx_flutter_boilerplate_3/services/notification_service.dart';
 import 'package:antonx_flutter_boilerplate_3/services/file_picker_service.dart';
+import 'package:antonx_flutter_boilerplate_3/ui/views/sign_in/sign_in_view.dart';
 // @stacked-import
 
 @StackedApp(
@@ -22,7 +23,8 @@ import 'package:antonx_flutter_boilerplate_3/services/file_picker_service.dart';
   routes: [
     MaterialRoute(page: HomeView),
     MaterialRoute(page: StartupView),
-    // @stacked-route
+    MaterialRoute(page: SignInView),
+// @stacked-route
   ],
   dependencies: [
     LazySingleton(classType: BottomSheetService),
