@@ -94,6 +94,15 @@ We have set three environments in the this template:
 We have also added config file to add configurations relevant to the environment the app is running. You can find config file at `lib/core/config_service` and there you need to set all three BaseUrls for all three envs.
 Then `ApiService` class will get the relevant base_url according to the environment the app is running in.
 
+After the Addition of the google_services.json files for each particular firebase we also need to add the firebase_options.dart file respectively. Firebase option files contains the relevant information about the particular firebase being used in current flavor, therefore, we need to add 3 different firebase option files for each flavor. The following is the method to generate it: 
+``` 
+-------------------------------------------------------
+NOTE: SET THE FOLLOWING CODE ACCORDING TO YOUR USE CASE
+-------------------------------------------------------
+
+flutterfire config \ --project=your_firebase_project_id \ --out=lib/give_firebase_options_name_according_to_flavor.dart \ --ios-bundle-id=com.eatkareem.halalnow.stg \ --android-app-id=com.eatkareem.halalnow.stg
+```
+Using the above snippet of code, you can generate the files for different flavored firebases. 
 
 ## Running Various Flavors from Terminal
 We can use the following commands to run various flavors using the terminal.
