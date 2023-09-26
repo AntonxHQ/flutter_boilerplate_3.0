@@ -1,4 +1,4 @@
-import 'package:antonx_flutter_boilerplate_3/routes/routes.dart';
+import 'package:antonx_flutter_boilerplate_3/routes/app_routes.dart';
 import 'package:antonx_flutter_boilerplate_3/ui/common/ui_helpers.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';

@@ -1,7 +1,7 @@
 import 'package:accessibility_tools/accessibility_tools.dart';
 import 'package:antonx_flutter_boilerplate_3/app/app.logger.dart';
 import 'package:antonx_flutter_boilerplate_3/constants/theme.dart';
-import 'package:antonx_flutter_boilerplate_3/routes/my.router.dart';
+import 'package:antonx_flutter_boilerplate_3/routes/app_router.dart';
 import 'package:antonx_flutter_boilerplate_3/services/config_service.dart';
 import 'package:antonx_flutter_boilerplate_3/ui/views/error/error_view.dart';
 import 'package:flutter/material.dart';
@@ -36,7 +36,7 @@ class MainApp extends StatelessWidget {
           debugShowCheckedModeBanner: false,
           theme: AppThemes().lightTheme,
           darkTheme: AppThemes().darkTheme,
-          routerConfig: AppRouter().router,
+          routerConfig: router,
           builder: (context, child) {
             ///
             ///'[ErrorWidget.builder]' is a method in Flutter that allows you to customize the appearance of the widget
