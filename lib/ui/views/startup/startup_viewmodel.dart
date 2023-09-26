@@ -1,10 +1,9 @@
 import 'package:antonx_flutter_boilerplate_3/app/app.dialogs.dart';
 import 'package:antonx_flutter_boilerplate_3/app/app.locator.dart';
 import 'package:antonx_flutter_boilerplate_3/app/app.logger.dart';
-import 'package:antonx_flutter_boilerplate_3/routes/routes.dart';
+import 'package:antonx_flutter_boilerplate_3/routes/app_routes.dart';
 import 'package:antonx_flutter_boilerplate_3/services/authentication_service.dart';
 import 'package:antonx_flutter_boilerplate_3/services/local_storage_service.dart';
-// import 'package:antonx_flutter_boilerplate_3/services/notification_service.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:stacked/stacked.dart';
